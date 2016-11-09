@@ -123,7 +123,7 @@ EOM
         });
         regSteps($s1, "Configure apache.", sub{
             my $confServerApachePhp = << 'EOM';
-Alias /zabbix /usr/share/zabbix
+Alias /zab /usr/share/zabbix
 php_value max_execution_time 300
 php_value memory_limit 128M
 php_value post_max_size 16M
@@ -196,7 +196,7 @@ EOM
             installPackageSuite("perl-jsonrpc");    # for regTemplate
             require JSON::RPC::Legacy::Client;
             our $client      = new JSON::RPC::Legacy::Client;
-            my $endpoint    = 'http://127.0.0.1/zabbix/';
+            my $endpoint    = 'http://127.0.0.1/zab/';
             our $uri         = $endpoint."api_jsonrpc.php";
 
             sub callrpc
